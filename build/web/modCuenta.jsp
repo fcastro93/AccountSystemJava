@@ -212,7 +212,7 @@
                                 <%
                                     String bancoFlag = "";
                                     Class.forName("com.mysql.jdbc.Driver");
-                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                     String sql = "select CUENTA FROM AA_BANCO_CUENTA";
                                     PreparedStatement pstmt = connection.prepareStatement(sql);
                                     ResultSet resultset = pstmt.executeQuery();
@@ -241,7 +241,7 @@
                                 <%
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver");
-                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                         Statement statement = connection.createStatement();
                                         resultset = statement.executeQuery("select * from AA_BANCO");
 
@@ -270,7 +270,7 @@
                                 <%
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver");
-                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                         Statement statement = connection.createStatement();
                                         resultset = statement.executeQuery("select * from AA_BENEFICIARIO");
 
@@ -297,7 +297,7 @@
                                 <%
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver");
-                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                         Statement statement = connection.createStatement();
                                         resultset = statement.executeQuery("select * from AA_LUGAR");
                                 %>
@@ -326,7 +326,7 @@
                                 <%
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver");
-                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                        connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                         Statement statement = connection.createStatement();
                                         resultset = statement.executeQuery("select * from AA_MONEDA");
 

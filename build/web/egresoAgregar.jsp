@@ -253,7 +253,7 @@
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver");
                                         Connection connection
-                                                = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true",
+                                                = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true",
                                                         "adminstt_soporte", "zAqwsx12");
                                         String sql = "call mostrarConceptos()";
                                         PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -294,7 +294,7 @@
                                     try {
                                         String bancoFlag = "";
                                         Class.forName("com.mysql.jdbc.Driver");
-                                        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                         String sql = "call llevarCuentaBanco(?)";
                                         PreparedStatement pstmt = connection.prepareStatement(sql);
                                         pstmt.setString(1, razon);

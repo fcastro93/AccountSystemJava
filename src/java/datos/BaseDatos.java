@@ -14,7 +14,7 @@ public class BaseDatos {
     public ResultSet realizarQueryMultiple(String query) throws Exception {
         //assumes you already have your Connection
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
         Statement statement = connection.createStatement();
 
         ResultSet result = statement.executeQuery(query);
@@ -27,7 +27,7 @@ public class BaseDatos {
     public void agregarBeneficiario(String nombreEntidad, String notas) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         statement = connection.prepareCall("{call agregarBeneficiario(?,?)}");
         statement.setString(1, nombreEntidad);
         statement.setString(2, notas);
@@ -38,7 +38,7 @@ public class BaseDatos {
     public void agregarUsuario(String nombre, String usuario, String pass, String rol) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
         statement = connection.prepareCall("{call agregarUsuario(?,?,?,?)}");
         statement.setString(1, nombre);
         statement.setString(2, usuario);
@@ -51,7 +51,7 @@ public class BaseDatos {
     public void agregarMovimiento(String descripcion, java.util.Date fecha, String monto, String fondoOrigen, String destinoFondo) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         statement = connection.prepareCall("{call agregarMovimiento(?,?,?,?,?)}");
         statement.setString(1, descripcion);
         statement.setDate(2, new java.sql.Date(fecha.getTime()));
@@ -70,7 +70,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaDestino);
@@ -85,7 +85,7 @@ public class BaseDatos {
             if (result != -1) {
                 statement = null;
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
                 statement = connection.prepareCall("{call agregarDivisa(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
                 statement.setDate(1, new java.sql.Date(fecha.getTime()));
                 statement.setInt(2, Integer.parseInt(entidad));
@@ -120,7 +120,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaDestino);
@@ -135,7 +135,7 @@ public class BaseDatos {
             if (result != -1) {
                 statement = null;
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
                 statement = connection.prepareCall("{call agregarDivisaDos(?,?,?,?,?,?,?,?,?,?)}");
                 statement.setDate(1, new java.sql.Date(fecha.getTime()));
                 statement.setInt(2, Integer.parseInt(entidad));
@@ -165,7 +165,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaO);
@@ -180,7 +180,7 @@ public class BaseDatos {
             if (result != -1) {
                 statement = null;
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
                 statement = connection.prepareCall("{call agregarFondo(?,?,?,?,?,?)}");
                 statement.setString(1, nombre);
                 statement.setDouble(2, Double.parseDouble(monto));
@@ -206,7 +206,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaO);
@@ -221,7 +221,7 @@ public class BaseDatos {
             if (result != -1) {
                 statement = null;
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
                 statement = connection.prepareCall("{call agregarFondoDos(?,?,?,?,?,?,?)}");
                 statement.setString(1, nombre);
                 statement.setDouble(2, Double.parseDouble(monto));
@@ -246,7 +246,7 @@ public class BaseDatos {
         try {
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
             statement = connection.prepareCall("{call liquidarFondo(?,?,?,?,?)}");
             statement.setDouble(1, Double.parseDouble(monto));
             statement.setDouble(2, Double.parseDouble(intereses));
@@ -265,7 +265,7 @@ public class BaseDatos {
         ResultSet resultset = null;
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
         statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
         statement.setString(1, cuenta);
@@ -298,7 +298,7 @@ public class BaseDatos {
         System.out.println("Pasando a real " + idFlujo);
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         statement = connection.prepareCall("{call pasarReal(?)}");
         statement.setInt(1, Integer.parseInt(idFlujo));
         statement.execute();
@@ -308,7 +308,7 @@ public class BaseDatos {
     public void eliminarFlujo(String idFlujo) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         statement = connection.prepareCall("{call eliminarFlujo(?)}");
         statement.setInt(1, Integer.parseInt(idFlujo));
         statement.execute();
@@ -321,7 +321,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuenta);
@@ -336,7 +336,7 @@ public class BaseDatos {
             if (result != -1 || estado == 2) {
                 statement = null;
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
                 statement = connection.prepareCall("{call agregarFlujo(?,?,?,?,?,?)}");
                 statement.setDate(1, new java.sql.Date(fecha.getTime()));
                 statement.setString(2, cuenta);
@@ -369,7 +369,7 @@ public class BaseDatos {
     public void agregarBanco(String nombre) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         statement = connection.prepareCall("{call agregarBanco(?)}");
         statement.setString(1, nombre);
         statement.execute();
@@ -381,7 +381,7 @@ public class BaseDatos {
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println(usuario);
         System.out.println(razon);
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         statement = connection.prepareCall("{call agregarPrivilegio(?,?)}");
         statement.setString(1, usuario);
         statement.setString(2, razon);
@@ -392,7 +392,7 @@ public class BaseDatos {
     public void quitarPrivilegio(String usuario, String razon) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         statement = connection.prepareCall("{call quitarPrivilegio(?,?)}");
         statement.setString(1, usuario);
         statement.setString(2, razon);
@@ -403,7 +403,7 @@ public class BaseDatos {
     public void agregarCuenta(String nombre, String beneficiario, String cuenta, String monto, String moneda, java.util.Date date, String lugar, String compra, String venta) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
         if (moneda == "EURO") {
             statement = connection.prepareCall("{call agregarCuenta(?,?,?,?,?,?,?,?,?,?)}");
             statement.setString(1, nombre);
@@ -438,7 +438,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true",
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true",
                     "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModBanco(?,?)}");
             statement.setString(1, cuenta);
@@ -455,7 +455,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true",
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true",
                     "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModFondo(?,?)}");
             statement.setString(1, fondo);
@@ -473,7 +473,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModCuenta(?,?)}");
             statement.setString(1, cuenta);
             statement.setString(2, nuevaCuenta);
@@ -491,7 +491,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModCInicial(?,?)}");
             statement.setString(1, cuenta);
             statement.setDouble(2, nuevoMonto);
@@ -509,7 +509,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModFinal(?,?)}");
             statement.setString(1, cuenta);
             statement.setDouble(2, nuevoMonto);
@@ -526,7 +526,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call modTiposDeCambio(?,?,?,?)}");
             
             statement.setDate(1, new java.sql.Date(fecha.getTime()));
@@ -546,7 +546,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModConceptoIng(?,?)}");
             statement.setString(1, ingreso);
             statement.setString(2, concepto);
@@ -563,7 +563,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call seleccionBeneficiario(?)}");
             statement.setString(1, ben);
             statement.execute();
@@ -579,7 +579,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModCuentaIng(?,?)}");
             statement.setString(1, ingreso);
             statement.setString(2, cuenta);
@@ -597,7 +597,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call modFlujoMonto(?,?)}");
             statement.setString(1, ingreso);
             statement.setDouble(2, nuevoMonto);
@@ -615,7 +615,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerModMontoEstimado(?,?)}");
             statement.setInt(1, Integer.parseInt(ingreso));
             statement.setDouble(2, nuevoMonto);
@@ -632,7 +632,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call modFlujoConcepto(?,?)}");
             statement.setString(1, ingreso);
             statement.setString(2, con);
@@ -651,7 +651,7 @@ public class BaseDatos {
             } else {
                 CallableStatement statement = null;
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 statement = connection.prepareCall("{call modFlujoCuenta(?,?)}");
                 statement.setString(1, ingreso);
                 statement.setString(2, cuenta);
@@ -669,7 +669,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call modFlujoFecha(?,?)}");
             statement.setDate(1, new java.sql.Date(fecha.getTime()));
             statement.setString(2, ingreso);
@@ -685,7 +685,7 @@ public class BaseDatos {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             String sql = "SELECT COUNT(*) FROM AA_USUARIO WHERE USUARIO = ? AND PASS = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuario);
@@ -710,7 +710,7 @@ public class BaseDatos {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             String sql = "SELECT PAIS_A FROM AA_USUARIO WHERE USUARIO = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuario);
@@ -730,7 +730,7 @@ public class BaseDatos {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             String sql = "SELECT ID_USUARIO FROM AA_USUARIO WHERE USUARIO = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuario);
@@ -750,7 +750,7 @@ public class BaseDatos {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             String sql = "SELECT ID_ROL FROM AA_USUARIO WHERE USUARIO = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuario);
@@ -770,7 +770,7 @@ public class BaseDatos {
             String lugar, String compra, String venta) throws Exception {
         CallableStatement statement = null;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
         if (moneda == "EURO") {
             statement = connection.prepareCall("{call agregarCuentaDos(?,?,?,?,?,?,?,?,?,?,?)}");
@@ -809,7 +809,7 @@ public class BaseDatos {
         try {
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call hacerCierre(?,?,?)}");
             statement.setString(1, beneficiario);
             statement.setDouble(2, Double.parseDouble(compra));
@@ -828,7 +828,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaDestino);
@@ -842,7 +842,7 @@ public class BaseDatos {
 
             if (result != -1) {
                 statement = null;
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 statement = connection.prepareCall("{call hacerTransferencia(?,?,?,?,?)}");
                 statement.setString(1, cuentaOrigen);
                 statement.setString(2, cuentaDestino);
@@ -868,7 +868,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaDestino);
@@ -882,7 +882,7 @@ public class BaseDatos {
 
             if (result != -1) {
                 statement = null;
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 statement = connection.prepareCall("{call hacerTransferencia(?,?,?,?,?)}");
                 statement.setString(1, cuentaOrigen);
                 statement.setString(2, cuentaDestino);
@@ -893,7 +893,7 @@ public class BaseDatos {
                 connection.close();
 
                 statement = null;
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 statement = connection.prepareCall("{call agregarFlujo(?,?,?,?,?,?)}");
                 statement.setDate(1, new java.sql.Date(Fecha.getTime()));
                 statement.setString(2, cuentaOrigen);
@@ -920,7 +920,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaDestino);
@@ -934,7 +934,7 @@ public class BaseDatos {
 
             if (result != -1) {
                 statement = null;
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 statement = connection.prepareCall("{call hacerTransferenciaExtra(?,?,?,?,?,?)}");
                 statement.setString(1, cuentaOrigen);
                 statement.setString(2, cuentaDestino);
@@ -960,7 +960,7 @@ public class BaseDatos {
             ResultSet resultset = null;
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_rol_adm", "zAqwsx12");
 
             statement = connection.prepareCall("select date(Fecha) from AA_BANCO_ESTADO where CERRADO = 0 AND ID_CUENTA = (select ID_CUENTA FROM AA_BANCO_CUENTA WHERE CUENTA = ? )");
             statement.setString(1, cuentaDestino);
@@ -974,7 +974,7 @@ public class BaseDatos {
 
             if (result != -1) {
                 statement = null;
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 statement = connection.prepareCall("{call hacerTransferenciaExtra(?,?,?,?,?,?)}");
                 statement.setString(1, cuentaOrigen);
                 statement.setString(2, cuentaDestino);
@@ -987,7 +987,7 @@ public class BaseDatos {
                 
                 
                 statement = null;
-                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 statement = connection.prepareCall("{call agregarFlujo(?,?,?,?,?,?)}");
                 statement.setDate(1, new java.sql.Date(Fecha.getTime()));
                 statement.setString(2, cuentaOrigen);
@@ -1012,7 +1012,7 @@ public class BaseDatos {
         try {
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call agregarPais(?)}");
             statement.setString(1, pais);
             statement.execute();
@@ -1064,7 +1064,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call cuentaModBanco(?,?)}");
             statement.setString(1, cuenta);
             statement.setString(2, cambio);
@@ -1081,7 +1081,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call cuentaModCuenta(?,?)}");
             statement.setString(1, cuenta);
             statement.setString(2, cambio);
@@ -1098,7 +1098,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call cuentaModRazon(?,?)}");
             statement.setString(1, cuenta);
             statement.setString(2, cambio);
@@ -1115,7 +1115,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call cuentaModPais(?,?)}");
             statement.setString(1, cuenta);
             statement.setString(2, cambio);
@@ -1132,7 +1132,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call cuentaModMoneda(?,?)}");
             statement.setString(1, cuenta);
             statement.setString(2, cambio);
@@ -1149,7 +1149,7 @@ public class BaseDatos {
 
             CallableStatement statement = null;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
             statement = connection.prepareCall("{call cuentaModTipo(?,?)}");
             statement.setString(1, cuenta);
             statement.setString(2, cambio);

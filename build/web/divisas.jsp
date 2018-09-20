@@ -144,7 +144,7 @@
                                 df.setRoundingMode(RoundingMode.DOWN);
                                 try {
                                     Class.forName("com.mysql.jdbc.Driver");
-                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                     Statement statement1 = connection.createStatement();
                                     Date date = new Date();
                                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");

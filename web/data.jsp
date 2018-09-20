@@ -26,7 +26,7 @@
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/"
-                        + "adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                        + "databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                 Statement smt = con.createStatement(); //Create Statement to interact
                 ResultSet r = smt.executeQuery("select * from AA_FLUJO where(ID_FLUJO='" + q + "');");
                 while (r.next()) {

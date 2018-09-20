@@ -266,7 +266,7 @@
                                             <%
                                                 try {
                                                     Class.forName("com.mysql.jdbc.Driver");
-                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                                     Statement statement = connection.createStatement();
                                                     ResultSet resultset = statement.executeQuery("select * from AA_MONEDA");
                                             %>
@@ -292,7 +292,7 @@
                                             <%
                                                 try {
                                                     Class.forName("com.mysql.jdbc.Driver");
-                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                                     String sql = "SELECT CUENTA FROM AA_BANCO_CUENTA WHERE ID_BENEFICIARIO = (SELECT ID_BENEFICIARIO FROM AA_BENEFICIARIO WHERE NOMBRE_ENTIDAD = ?);";
                                                     PreparedStatement pstmt = connection.prepareStatement(sql);
                                                     pstmt.setString(1, razon);
@@ -360,7 +360,7 @@
                                             <%
                                                 try {
                                                     Class.forName("com.mysql.jdbc.Driver");
-                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                                     Statement statement = connection.createStatement();
                                                     ResultSet resultset = statement.executeQuery("select * from AA_BANCO_FONDO");
                                             %>
@@ -386,7 +386,7 @@
                                             <%
                                                 try {
                                                     Class.forName("com.mysql.jdbc.Driver");
-                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                                    Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                                     String sql = "SELECT CUENTA FROM AA_BANCO_CUENTA WHERE ID_BENEFICIARIO = (SELECT ID_BENEFICIARIO FROM AA_BENEFICIARIO WHERE NOMBRE_ENTIDAD = ?);";
                                                     PreparedStatement pstmt = connection.prepareStatement(sql);
                                                     pstmt.setString(1, razon);
@@ -428,7 +428,7 @@
                                             try {
                                                 Class.forName("com.mysql.jdbc.Driver");
                                                 Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/"
-                                                        + "adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
+                                                        + "databaseName?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
                                                 Statement statement1 = connection.createStatement();
                                                 String sentencia = "select * from AA_BANCO_FONDO";
                                                 ResultSet resultset = statement1.executeQuery(sentencia);

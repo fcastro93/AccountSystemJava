@@ -239,7 +239,7 @@
                                 <%
                                     Class.forName("com.mysql.jdbc.Driver");
                                     Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/"
-                                            + "adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                            + "databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                     try {
 
                                         CallableStatement statement = connection.prepareCall("{call traer_fecha(?)}");

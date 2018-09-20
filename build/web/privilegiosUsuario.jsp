@@ -159,7 +159,7 @@
                                             CallableStatement statement = null;
                                             Class.forName("com.mysql.jdbc.Driver");
                                             Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/"
-                                                    + "adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
+                                                    + "databaseName?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
                                             statement = connection.prepareCall("{call mostrarListarRazonPositiva(?)}");
                                             statement.setString(1, usuarioTemp);
                                             boolean hadResults = statement.execute();
@@ -179,7 +179,7 @@
 
                                     statement = null;
                                     connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/"
-                                            + "adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
+                                            + "databaseName?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
                                     statement = connection.prepareCall("{call mostrarListarRazonNegativo(?)}");
                                     statement.setString(1, usuarioTemp);
                                     hadResults = statement.execute();
@@ -219,7 +219,7 @@
 
                                     statement = null;
                                     connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/"
-                                            + "adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
+                                            + "databaseName?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
                                     statement = connection.prepareCall("{call mostrarListarRazonPositiva(?)}");
                                     statement.setString(1, usuarioTemp);
                                     hadResults = statement.execute();

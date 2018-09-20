@@ -223,7 +223,7 @@
 
                                             Class.forName("com.mysql.jdbc.Driver");
                                             Connection connection
-                                                    = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true",
+                                                    = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true",
                                                             "adminstt_soporte", "zAqwsx12");
                                             String sql = "call mostrarListarRazon(?)";
                                             PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -277,7 +277,7 @@
                                         try {
 
                                             Class.forName("com.mysql.jdbc.Driver");
-                                            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
+                                            Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/databaseName?noAccessToProcedureBodies=true", "adminstt_soporte", "zAqwsx12");
                                             String sql = "call mostrarListarRazon(?)";
                                             PreparedStatement pstmt = connection.prepareStatement(sql);
                                             pstmt.setString(1, usuario);
@@ -348,7 +348,7 @@
                                                 df.setRoundingMode(RoundingMode.DOWN);
                                                 Class.forName("com.mysql.jdbc.Driver");
                                                 Connection connection = DriverManager.getConnection("jdbc:mysql://198.38.91.192:3306/"
-                                                        + "adminstt_Finanzas?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
+                                                        + "databaseName?noAccessToProcedureBodies=true", "adminstt_rol_con", "zAqwsx12");
 
                                                 Date date = new Date();
                                                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
